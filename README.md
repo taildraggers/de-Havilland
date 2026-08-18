@@ -13,10 +13,12 @@ reliably for an unattended daily job.
 Note: in the companion [Aviat](https://github.com/taildraggers/aviat) repo,
 Barnstormers' single-manufacturer category page (their "Aviat Aircraft" hub)
 turned out to include unrelated aircraft mixed in with no distinguishing HTML
-markup. The same could happen here. This repo currently publishes everything
-found in the de Havilland category unfiltered; if testing shows off-brand
-listings leaking in, a title allowlist (matching the approach used in the
-Aviat repo) should be added to `scraper/barnstormers.py`.
+markup. The same happened here: real runs found an Aeronca 7EC raffle and
+generic "win an airplane" raffle listings mixed into the "de Havilland"
+category alongside genuine listings. `scraper/barnstormers.py` now filters
+by title against a small allowlist of de Havilland product names
+(`TARGET_MODEL_PHRASES`: de Havilland/DHC, Beaver, Otter, Moth, Chipmunk,
+Dove) before publishing, matching the approach used in the Aviat repo.
 
 ## How it works
 
